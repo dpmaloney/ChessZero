@@ -2,8 +2,7 @@
 import numpy as np
 from tensorflow import keras
 import wandb
-from keras.layers import (Activation, Conv2D, Dense, Dropout, Flatten,
-                          LeakyReLU, MaxPooling2D)
+
 wandb.init(project="chesslearning")
 
 class ChessValueDataset():
@@ -23,12 +22,12 @@ def build_model():
     model = keras.Sequential()
     model.add(keras.layers.Input((5, 8, 8)))
     model.add(keras.layers.Conv2D(128, kernel_size=(2, 2), padding="same"))
-    model.add(Activation('relu'))
+    model.add(keras.layers.Activation('relu'))
     model.add(keras.layers.Conv2D(256, kernel_size=(2,2), padding="same"))
-    model.add(Activation('relu'))
+    model.add(keras.layers.Activation('relu'))
     model.add(keras.layers.Flatten())
     model.add(keras.layers.Dense(1024))
-    model.add(Activation('relu'))
+    model.add(keras.layers.Activation('relu'))
     model.add(keras.layers.Dense(1, activation="linear"))
     model.compile(loss="squared_hinge", optimizer="adam", metrics=["cosine_proximity"])
     return model
