@@ -1,4 +1,4 @@
 # ChessGuyZero
 
-He's pretty damn awful at chess but it's alright
+He's pretty awful at chess but he's doing his best
 
